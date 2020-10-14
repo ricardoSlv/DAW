@@ -1,0 +1,13 @@
+.cat-img{
+    height: 400px;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+.modal-img{
+    height: 96vh;
+    border-radius: 1rem;
+    object-fit: cover;
+}
