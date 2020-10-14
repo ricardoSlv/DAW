@@ -5,7 +5,35 @@ const url3 = 'https://api.thecatapi.com/v1/images/search?limit=6&breed_id=beng'
 function showModal(element) {
     document.getElementById("img01").src = element.src;
     document.getElementById("modal01").style.display = "block";
-  }
+}
+
+function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    let div = document.getElementById("myDIV");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+      let txtValue = a[i].textContent || a[i].innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+      } else {
+        a[i].style.display = "none";
+      }
+    }
+}
+
+
+
+async function fetchBreeds(){
+
+    const data = await fetch(`https://api.thecatapi.com/v1/breeds`)
+    const response = await data.json()
+
+    const breeds = response.map(x=>({id:x.id,name:x.name}))
+    console.log(breeds)
+    return breeds
+}
 
 async function fetchCats(breed){
     let data=[]
@@ -48,5 +76,6 @@ async function updateCats(breed){
 
 }
 
+fetchBreeds()
 updateCats('beng')
 
