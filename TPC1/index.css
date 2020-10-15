@@ -30,6 +30,6 @@
     margin-top: -5px;
 }
 
-.main-section{
-    min-height: calc( 100vh - 154px - 32px);
+.search-button{
+    margin-right: 1rem;
 }

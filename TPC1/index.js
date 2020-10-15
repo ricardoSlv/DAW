@@ -22,10 +22,7 @@ function searchFilter() {
     }
 }
 
-
-
 async function fetchBreeds(){
-
     try{
         const data = await fetch(`https://api.thecatapi.com/v1/breeds`)
         const response = await data.json() 
