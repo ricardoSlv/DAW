@@ -1,6 +1,3 @@
-const catApiKey = '0c928b12-ce74-45d4-a024-85437887d2fe'
-
-const url3 = 'https://api.thecatapi.com/v1/images/search?limit=6&breed_id=beng'
 
 let breedData=[]
 
@@ -29,16 +26,21 @@ function searchFilter() {
 
 async function fetchBreeds(){
 
-    const data = await fetch(`https://api.thecatapi.com/v1/breeds`)
-    const response = await data.json()
-
-    breedData = response.map(x=>({id:x.id,name:x.name}))
+    try{
+        const data = await fetch(`https://api.thecatapi.com/v1/breeds`)
+        const response = await data.json() 
+        breedData = response.map(x=>({id:x.id,name:x.name}))
+    }catch(e){
+        console.error(e)
+    }
+    
     console.log(breedData)
 
     let div = document.getElementById("search-options-container");
     const filterinput = div.firstElementChild 
     div.innerHTML=""
     div.appendChild(filterinput)
+
     breedData.forEach(b=>{
         const button = document.createElement('button')
         button.classList.add('w3-bar-item','w3-button')
@@ -54,17 +56,21 @@ async function fetchBreeds(){
 
 async function fetchCats(breed){
     let data=[]
-    if(breed)
-        data = await fetch(`https://api.thecatapi.com/v1/images/search?limit=9&breed_id=${breed}`)
-    else
-        data = await fetch(`https://api.thecatapi.com/v1/images/search?limit=9`)
+    let response=[]
 
-    const response = await data.json()
+    try{
+        if(breed)
+            data = await fetch(`https://api.thecatapi.com/v1/images/search?limit=9&breed_id=${breed}`)
+        else
+            data = await fetch(`https://api.thecatapi.com/v1/images/search?limit=9`)
+        response = await data.json()
+    }catch(e){
+        console.error(e)
+    }
+
     console.log(response)
     return response
 }
-
-
 
 async function updateCats(breed){
     const data = await fetchCats(breed.id)
@@ -90,6 +96,10 @@ async function updateCatsRandom(){
     updateCats(randomBreedId)
 }
 
-fetchBreeds()
-updateCats({id:'beng',name:'Bengal'})
+async function startup(){
+    await fetchBreeds()
+    updateCatsRandom()
+}
+
+startup()
 
