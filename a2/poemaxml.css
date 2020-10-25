@@ -1,0 +1,32 @@
+poema{
+    display: block;
+    margin: 40px;
+}
+
+titulo,autor{
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+autor{
+    font-size: 20px;
+}
+
+quadra,terceto,verso {
+    display: block;
+    font-family: sans-serif;
+}
+
+quadra,terceto{
+    margin-bottom: 20px;
+}
+
+nome{
+    color: red;
+}
+
+local{
+    color: green;
+}
