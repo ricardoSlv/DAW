@@ -1,0 +1,3 @@
+Gerar site para xml arq.xml
+
+Criar Dtd para o tal xml
