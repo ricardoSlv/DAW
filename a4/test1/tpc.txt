@@ -1,0 +1,6 @@
+pegar n arqueositios
+1-> gerar arq1.html,arq2html,...
+2-> criar nodejs server para responder:
+    localhost:xxxx/arqs/7 with arq7.html
+
+-generate and index page with hrefs of the form: localhost:xxxxx/arqs/7    
