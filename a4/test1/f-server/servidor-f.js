@@ -5,7 +5,7 @@ http.createServer((req, res) => {
 
     if (req.url.match(/\/[1-3]$/)) {
         const num = req.url.split("/")[req.url.length - 1]
-        fs.readFile('pag' + 1 + '.html', (err, data) => {
+        fs.readFile('pag' + num + '.html', (err, data) => {
             res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
             res.write(data)
             console.log(data.toString())
