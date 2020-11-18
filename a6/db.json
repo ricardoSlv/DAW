@@ -1,0 +1,40 @@
+{
+  "alunos": [
+    {
+      "nome": "Fernando Pessoa",
+      "id": "PG12345",
+      "curso": "literatura",
+      "git": "https://github.com"
+    },
+    {
+      "nome": "1",
+      "id": "1",
+      "curso": "1",
+      "git": "1"
+    },
+    {
+      "nome": "ola",
+      "id": "123",
+      "curso": "h",
+      "git": "git"
+    },
+    {
+      "nome": "ola",
+      "id": "1231",
+      "curso": "h",
+      "git": "git"
+    },
+    {
+      "nome": "ola",
+      "id": "PG1231",
+      "curso": "h",
+      "git": "git"
+    },
+    {
+      "nome": "Fernando2",
+      "curso": "literatura",
+      "git": "https://github.com",
+      "id": "a0zMXl8"
+    }
+  ]
+}
