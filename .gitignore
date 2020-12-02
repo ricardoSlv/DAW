@@ -1,4 +1,4 @@
 #Node modukes
-nodule_modules/
+node_modules/
 #Env
 *.env
