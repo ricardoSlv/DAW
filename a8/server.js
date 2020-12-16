@@ -1,3 +1,4 @@
+// @ts-check
 import express from "express"
 import bodyParser, { json } from "body-parser"
 import jsonfile from "jsonfile"
@@ -24,7 +25,7 @@ app.use(bodyParser.json())
 app.use(express.static('public'))
 
 app.get('/', (_,res)=>{
-    const d = new Date().toISOString().split(0,16)
+    const d = new Date().toISOString().substr(0,16)
     const files = jsonfile.readFileSync('./dbFiles.json')
     //console.log(files)
     res.writeHead(200,{'Content-Type': 'text/html;charset=utf-8'})
@@ -33,7 +34,7 @@ app.get('/', (_,res)=>{
 })
 
 app.get('/files/upload', (_,res)=>{
-    const d = new Date().toISOString().split(0,16)
+    const d = new Date().toISOString().substr(0,16)
     res.writeHead(200,{'Content-Type': 'text/html;charset=utf-8'})
     res.write(templates.fileForm(d))
     res.send()
@@ -46,13 +47,13 @@ app.get('/files/download/:fname', (req,res)=>{
 
 //app.post('/files', upload.array('myFile'), (req,res,next)=>{
 //req.files -> array
-app.post('/files', upload.single('myFile'), (req,res,next)=>{
+app.post('/files', upload.single('myFile'), (req,res,_next)=>{
 
     const oldPath = __dirname + '/' + req.file.path
     const newPath = __dirname + '/public/fileStore/' + req.file.originalname
     fs.rename(oldPath,newPath,()=>console.log('ola'))
 
-    const d = new Date().toISOString().split(0,16)
+    const d = new Date().toISOString().substr(0,16)
     const files = jsonfile.readFileSync('./dbFiles.json')
     files.push(
         {date: d,

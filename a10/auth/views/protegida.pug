@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 Autenticação basica com NodeJS: Area Protegida
+  p Olá #{utilizador.id} chegaste à zona protegida! 
+  ul  
+    li
+      a(href="/users/logout") Logout
+    li
+      a(href="/") Homepage
+
